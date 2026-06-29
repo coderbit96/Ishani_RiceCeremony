@@ -15,18 +15,18 @@ function Header() {
   }, [])
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-cream/90 shadow-sm backdrop-blur-xl' : 'bg-transparent'}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 transition-all duration-500 ${scrolled ? 'bg-rosewood shadow-gold' : 'bg-rosewood shadow-sm'}`}>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <a href="#home" className="group flex items-center gap-3" aria-label={`${eventData.babyName}'s invitation home`}>
-          <span className="grid h-10 w-10 place-items-center rounded-full border border-champagne/40 bg-white/70 font-display text-xl italic text-rosewood shadow-sm">
+          <span className="grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-white/10 font-display text-xl italic text-petal shadow-sm">
             {eventData.babyName.charAt(0)}
           </span>
-          <span className="font-display text-xl font-semibold tracking-wide text-rosewood">{eventData.babyName}</span>
+          <span className="font-display text-xl font-semibold tracking-wide text-white">{eventData.babyName}</span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
           {eventData.navigation.map((item) => (
-            <a key={item.href} href={item.href} className="nav-link text-xs font-semibold uppercase tracking-[0.18em] text-ink/70">
+            <a key={item.href} href={item.href} className="nav-link text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
               {item.label}
             </a>
           ))}
@@ -34,7 +34,7 @@ function Header() {
 
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-full border border-rosewood/10 bg-white/70 text-rosewood lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -49,12 +49,12 @@ function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-rosewood/10 bg-cream/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-white/10 bg-rosewood/95 backdrop-blur-xl lg:hidden"
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col px-6 py-5">
               {eventData.navigation.map((item) => (
-                <a key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-rosewood/10 py-4 text-sm font-semibold text-rosewood last:border-0">
+                <a key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-sm font-semibold text-white/85 last:border-0">
                   {item.label}
                 </a>
               ))}

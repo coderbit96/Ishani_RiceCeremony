@@ -31,12 +31,6 @@ function Hero() {
             {eventData.babyName}
           </h1>
           <div className="mt-5 lg:flex lg:justify-start"><FloralMark /></div>
-          <div className="mt-6 flex items-center justify-center gap-3 lg:justify-start">
-            <span className="font-bengali text-2xl text-rosewood">{eventData.eventNameBengali}</span>
-            <span className="h-1 w-1 rounded-full bg-champagne" />
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-ink/55">{eventData.eventName}</span>
-          </div>
-
           <div className="mt-7 flex justify-center lg:justify-start">
             <a href={eventData.googleMapLink} target="_blank" rel="noreferrer" className="button-primary"><MapPin size={17} />{eventData.copy.viewLocation}</a>
           </div>

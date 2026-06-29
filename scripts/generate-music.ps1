@@ -1,5 +1,5 @@
 param(
-  [string]$OutputPath = "public/music/annaprasan-melody.wav"
+  [string]$OutputPath = "public/music/ishani-melody.wav"
 )
 
 $sampleRate = 22050

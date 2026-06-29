@@ -1,10 +1,10 @@
-import heroPortrait from '../assets/anika-hero.jpg'
+import heroPortrait from '../assets/ishani-hero.jpg'
 
 // This is the only file you need to edit to personalize the invitation.
 const eventData = {
-  babyName: 'Anika',
-  babyNameBengali: 'অনিকা',
-  eventName: 'Annaprasan',
+  babyName: 'Ishani',
+  babyNameBengali: 'ইশানী',
+  eventName: 'শুভ অন্নপ্রাশন',
   eventNameBengali: 'অন্নপ্রাশন',
   eventDate: '2026-11-15T11:30:00+05:30',
   eventEndDate: '2026-11-15T15:00:00+05:30',
@@ -15,31 +15,32 @@ const eventData = {
   googleMapLink: 'https://maps.app.goo.gl/trHYK7HhVdYd4o2q9?g_st=aw',
   googleMapEmbedLink:
     'https://www.google.com/maps?q=F8GW%2BMM4%20Community%20Hall%2C%20Gangapuri%2C%20Shree%20Pally%2C%20Purba%20Putiary%2C%20Kolkata%2C%20West%20Bengal%20700093&output=embed',
-  fatherName: 'Arindam Chatterjee',
-  motherName: 'Madhurima Chatterjee',
-  familyName: 'The Chatterjee Family',
+  fatherName: 'Sayan Nath',
+  motherName: 'Monalisa Nath',
+  grandMotherName: 'Kalpana Nath',
+  familyName: 'Nath Family',
   dressCode: 'Pastels & traditional Indian attire',
   invitationMessage:
-    'With immense joy and blessings, we invite you and your family to grace the Annaprasan ceremony of our beloved daughter. Your presence and blessings will make this celebration more memorable.',
+    'With immense joy and blessings, we invite you and your family to grace the শুভ অন্নপ্রাশন ceremony of our beloved daughter. Your presence and blessings will make this celebration more memorable.',
   aboutBaby: {
     kicker: 'Our tiniest blessing',
-    title: 'A little story of love named Anika',
+    title: 'A little story of love named Ishani',
     message:
-      'With love, joy and blessings, we are celebrating the first rice ceremony of our little princess. Your presence will make this day more special.',
+      'With love, joy and blessings, we are celebrating the শুভ অন্নপ্রাশন of our little princess. Your presence will make this day more special.',
     parentsLabel: 'Proud parents',
   },
   blessingsMessage:
     'May every grain bring her wisdom, every flavour bring her joy, and every shared meal keep her surrounded by love.',
   heroImage: heroPortrait,
   galleryImages: [
-    { src: heroPortrait, alt: 'Anika smiling at her Annaprasan', caption: 'Our little sunshine', position: '50% 37%' },
-    { src: heroPortrait, alt: 'Anika in her pink traditional dress', caption: 'Draped in love', position: '50% 58%' },
+    { src: heroPortrait, alt: 'Ishani smiling on her special day', caption: 'Our little sunshine', position: '50% 37%' },
+    { src: heroPortrait, alt: 'Ishani in her pink traditional dress', caption: 'Draped in love', position: '50% 58%' },
     { src: heroPortrait, alt: 'Ceremonial rice and flowers', caption: 'A beautiful beginning', position: '50% 88%' },
-    { src: heroPortrait, alt: 'Anika surrounded by flowers', caption: 'Tiny moments, forever memories', position: '50% 20%' },
+    { src: heroPortrait, alt: 'Ishani surrounded by flowers', caption: 'Tiny moments, forever memories', position: '50% 20%' },
   ],
   timeline: [
     { time: '11:30 AM', title: 'Shubho Agomon', description: 'A warm welcome with flowers and smiles.', icon: 'sparkles' },
-    { time: '12:00 PM', title: 'Annaprasan Ritual', description: 'The first ceremonial morsel, with family blessings.', icon: 'bowl' },
+    { time: '12:00 PM', title: 'শুভ অন্নপ্রাশন Ritual', description: 'The first ceremonial morsel, with family blessings.', icon: 'bowl' },
     { time: '12:45 PM', title: 'Photos & Blessings', description: 'Precious moments with everyone she loves.', icon: 'camera' },
     { time: '1:30 PM', title: 'Celebration Lunch', description: 'A lovingly curated Bengali feast awaits.', icon: 'utensils' },
   ],
@@ -50,12 +51,12 @@ const eventData = {
   ],
   music: {
     enabled: true,
-    src: '/music/annaprasan-melody.wav',
+    src: '/music/ishani-melody.wav',
     title: 'Soft celebration melody',
   },
   navigation: [
     { label: 'Home', href: '#home' },
-    { label: 'About Anika', href: '#about' },
+    { label: 'About Ishani', href: '#about' },
     { label: 'Our invitation', href: '#invitation' },
     { label: 'Celebration', href: '#celebration' },
     { label: 'Memories', href: '#gallery' },
@@ -63,10 +64,10 @@ const eventData = {
   copy: {
     eyebrow: 'With love, laughter & a little rice',
     heroPrelude: 'You Are Invited',
-    heroCeremonyLine: 'To the Rice Ceremony / Annaprasan of',
+    heroCeremonyLine: 'To the শুভ অন্নপ্রাশন of',
     dearGuest: 'Dear Guest, You Are Invited',
     personalizedGreeting: 'Dear {guest}, You Are Invited',
-    heroImageAlt: 'Anika dressed for her Annaprasan ceremony',
+    heroImageAlt: 'Ishani dressed for her শুভ অন্নপ্রাশন ceremony',
     princessBadge: 'Our Princess',
     daughterOf: 'Beloved daughter of',
     saveDate: 'Save the date',
@@ -75,7 +76,7 @@ const eventData = {
     invitationKicker: 'A tiny spoonful. A lifetime of blessings.',
     invitationTitle: 'Her first feast of life',
     countdownKicker: 'Counting down the happy little moments',
-    countdownTitle: 'Until Anika’s special day',
+    countdownTitle: 'Until Ishani’s special day',
     countdownLabels: ['Days', 'Hours', 'Minutes', 'Seconds'],
     eventCompleteMessage: 'Thank you for joining our special celebration.',
     scheduleKicker: 'Celebration itinerary',
@@ -107,12 +108,12 @@ const eventData = {
     footerNote: 'Made with endless love for our little princess',
   },
   calendar: {
-    title: 'Annaprasan of Baby Anika',
-    description: 'Join us to celebrate Baby Anika’s first rice ceremony with love, lunch and blessings.',
+    title: 'শুভ অন্নপ্রাশন of Baby Ishani',
+    description: 'Join us to celebrate Baby Ishani’s শুভ অন্নপ্রাশন with love, lunch and blessings.',
   },
   seo: {
-    title: 'Annaprasan Invitation of Baby Anika',
-    description: 'You are invited to the Rice Ceremony / Annaprasan celebration of Baby Anika. Join us with your blessings.',
+    title: 'শুভ অন্নপ্রাশন Invitation of Baby Ishani',
+    description: 'You are invited to the শুভ অন্নপ্রাশন celebration of Baby Ishani. Join us with your blessings.',
     shareImage: '/social-preview.jpg',
   },
 }

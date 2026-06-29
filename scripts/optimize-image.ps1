@@ -1,6 +1,6 @@
 param(
-  [string]$InputPath = "src/assets/anika-hero.png",
-  [string]$OutputPath = "src/assets/anika-hero.jpg",
+  [string]$InputPath = "src/assets/ishani-hero.png",
+  [string]$OutputPath = "src/assets/ishani-hero.jpg",
   [long]$Quality = 88
 )
 

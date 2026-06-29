@@ -10,7 +10,7 @@ function EventDetails() {
     { icon: CalendarDays, label: eventData.copy.dateLabel, title: formattedDate, description: eventData.eventName },
     { icon: Clock3, label: eventData.copy.timeLabel, title: eventData.eventTime, description: eventData.copy.saveDate },
     { icon: MapPin, label: eventData.copy.venueLabel, title: eventData.venueName, description: eventData.venueAddress },
-    { icon: Users, label: eventData.copy.hostedByLabel, title: eventData.familyName, description: `${eventData.motherName} & ${eventData.fatherName}` },
+    { icon: Users, label: eventData.copy.hostedByLabel, title: eventData.familyName, description: `${eventData.motherName}, ${eventData.fatherName} & ${eventData.grandMotherName}` },
     { icon: PartyPopper, label: eventData.eventName, title: eventData.babyName, description: eventData.copy.princessBadge },
   ]
 
