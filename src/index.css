@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-cream font-sans text-ink antialiased; }
+  ::selection { @apply bg-petal text-rosewood; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+}
+
+@layer components {
+  .nav-link { @apply relative py-2 transition-colors hover:text-rosewood; }
+  .nav-link::after { content: ''; @apply absolute bottom-0 left-0 h-px w-0 bg-champagne transition-all duration-300; }
+  .nav-link:hover::after { @apply w-full; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-rosewood px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#59313a] hover:shadow-lg; }
+  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-champagne/35 bg-white px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-rosewood transition hover:-translate-y-0.5 hover:border-rosewood/30 hover:shadow-lg; }
+}
+
+.hero-frame { border-radius: 48% 48% 2rem 2rem / 25% 25% 2rem 2rem; }
+
+.alpana {
+  background-image: radial-gradient(circle at center, transparent 0 24px, #6f3e49 25px 26px, transparent 27px),
+    repeating-conic-gradient(from 22.5deg at center, #6f3e49 0deg 1deg, transparent 1deg 45deg);
+  background-size: 180px 180px;
+}
+
+.alpana-dark {
+  background-image: radial-gradient(circle at center, transparent 0 25px, #fff 26px 27px, transparent 28px),
+    repeating-conic-gradient(from 22.5deg at center, #fff 0deg 1deg, transparent 1deg 45deg);
+  background-size: 190px 190px;
+}
+
+.gallery-swiper .swiper-pagination-bullet { background: #c79856; opacity: 0.35; }
+.gallery-swiper .swiper-pagination-bullet-active { opacity: 1; width: 22px; border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
