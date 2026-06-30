@@ -11,9 +11,9 @@ npm run dev
 
 ## Personalize
 
-Edit `src/data/eventData.js`. Names, date/time, venue, family details, messages, images, timeline, food menu, and contact links all flow from this file.
+Edit `src/data/eventData.js`. Names, date/time, venue, family details, messages, images, and contact links all flow from this file.
 
-Replace `src/assets/ishani-hero.jpg` with your daughter's photo and update the import or image entries in `eventData.js` when ready.
+Replace the portrait images in `src/assets` and update their imports in `eventData.js` when needed.
 
 Personalize a guest link with `?guest=Mr.%20Sanjay%20and%20Family`. Without that parameter, the greeting defaults to “Dear Guest, You Are Invited.”
 
