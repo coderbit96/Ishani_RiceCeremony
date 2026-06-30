@@ -13,12 +13,12 @@ function LocationSection() {
             <div className="grid h-14 w-14 place-items-center rounded-full bg-blush text-rosewood"><MapPin size={23} strokeWidth={1.5} /></div>
             <p className="mt-7 text-[0.62rem] font-bold uppercase tracking-[0.24em] text-champagne">{eventData.copy.venueLabel}</p>
             <h3 className="mt-3 font-display text-4xl font-semibold text-rosewood">{eventData.venueName}</h3>
-            <p className="mt-4 text-sm leading-7 text-ink/60">{eventData.venueAddress}</p>
+            <p className="number-style mt-4 text-sm leading-7 text-ink/60">{eventData.venueAddress}</p>
             <div className="mt-8 flex flex-col gap-3">
               <a href={eventData.googleMapLink} target="_blank" rel="noreferrer" className="button-primary"><Navigation size={17} />{eventData.copy.openMapsButton}</a>
             </div>
           </motion.div>
-          <div className="min-h-[24rem] bg-blush lg:min-h-[34rem]">
+          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: 0.12 }} className="min-h-[24rem] bg-blush lg:min-h-[34rem]">
             <iframe
               src={eventData.googleMapEmbedLink}
               title={`${eventData.venueName} map`}
@@ -27,7 +27,7 @@ function LocationSection() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,35 +1,99 @@
 import { motion } from 'framer-motion'
-import { Camera, CookingPot, Sparkles, UtensilsCrossed } from 'lucide-react'
+import { Baby, CalendarDays, Clock3, HeartHandshake, MapPin, Users } from 'lucide-react'
 import eventData from '../data/eventData'
+import AnimalRain from './AnimalRain'
 import SectionHeading from './SectionHeading'
 
-const icons = { camera: Camera, bowl: CookingPot, sparkles: Sparkles, utensils: UtensilsCrossed }
+const formattedDate = new Intl.DateTimeFormat('en-IN', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+}).format(new Date(eventData.eventDate))
 
 function Celebration() {
+  const guestDetails = [
+    {
+      icon: Baby,
+      label: 'Baby',
+      title: `${eventData.babyName} · ${eventData.babyNameBengali}`,
+      description: eventData.eventName,
+    },
+    {
+      icon: HeartHandshake,
+      label: 'Proud parents',
+      title: `${eventData.motherName} & ${eventData.fatherName}`,
+      description: `With love from the ${eventData.familyName}`,
+    },
+    {
+      icon: Users,
+      label: 'Family & elders',
+      title: eventData.grandMotherName,
+      description: `Together with the ${eventData.familyName}`,
+    },
+    {
+      icon: CalendarDays,
+      label: 'Celebration date',
+      title: formattedDate,
+      description: 'Please save the date and join our celebration.',
+      numberStyle: true,
+    },
+    {
+      icon: Clock3,
+      label: 'Guest attendance',
+      title: eventData.eventTime,
+      description: 'You are warmly welcome throughout the celebration.',
+      numberStyle: true,
+    },
+    {
+      icon: MapPin,
+      label: 'Location',
+      title: eventData.venueShortName,
+      description: eventData.venueAddress,
+      link: eventData.googleMapLink,
+    },
+  ]
+
   return (
-    <section id="celebration" className="bg-cream py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="celebration" className="relative overflow-hidden bg-cream py-24 sm:py-32">
+      <AnimalRain />
+      <div className="relative z-10 mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading kicker={eventData.copy.scheduleKicker} title={eventData.copy.scheduleTitle} />
-        <div className="relative mx-auto mt-16 max-w-6xl">
-          <div className="absolute bottom-8 left-[1.7rem] top-8 w-px bg-champagne/35 md:bottom-auto md:left-[12.5%] md:right-[12.5%] md:top-7 md:h-px md:w-auto" />
-          <div className="space-y-7 md:grid md:grid-cols-4 md:gap-5 md:space-y-0">
-            {eventData.timeline.map((item, index) => {
-              const Icon = icons[item.icon] || Sparkles
-              return (
-                <motion.article key={item.time} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ delay: index * 0.08 }} className="relative md:pt-20">
-                  <div className="ml-20 rounded-2xl border border-champagne/20 bg-white p-6 shadow-sm md:ml-0 md:min-h-56 md:text-center">
-                    <p className="mb-2 text-[0.62rem] font-bold uppercase tracking-[0.23em] text-champagne">{item.time}</p>
-                    <h3 className="font-display text-2xl font-semibold text-rosewood">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-ink/60">{item.description}</p>
-                  </div>
-                  <div className="absolute left-0 top-1/2 grid h-14 w-14 -translate-y-1/2 place-items-center rounded-full border-4 border-cream bg-rosewood text-petal shadow-gold md:left-1/2 md:top-0 md:-translate-x-1/2 md:translate-y-0">
-                    <Icon size={21} strokeWidth={1.5} />
-                  </div>
-                </motion.article>
-              )
-            })}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="relative mt-14 overflow-hidden rounded-[2rem] border border-champagne/25 bg-white shadow-gold"
+        >
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-petal via-champagne to-petal" />
+
+          <div className="grid gap-px bg-champagne/15 sm:grid-cols-2 lg:grid-cols-3">
+            {guestDetails.map(({ icon: Icon, label, title, description, link, numberStyle }, index) => (
+              <motion.article
+                key={label}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                whileHover={{ y: -7, backgroundColor: '#fffaf1' }}
+                whileTap={{ scale: 0.99 }}
+                className="group bg-white p-7 transition-shadow duration-300 hover:z-10 hover:shadow-xl sm:p-8"
+              >
+                <motion.div whileHover={{ rotate: -8, scale: 1.08 }} className="mb-5 grid h-12 w-12 place-items-center rounded-full bg-blush/60 text-rosewood transition-colors group-hover:bg-rosewood group-hover:text-petal">
+                  <Icon size={20} strokeWidth={1.5} />
+                </motion.div>
+                <p className="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-champagne">{label}</p>
+                <h3 className={`mt-3 text-xl font-semibold leading-snug text-rosewood sm:text-2xl ${numberStyle ? 'number-style' : 'font-display'}`}>{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink/55">{description}</p>
+                {link && (
+                  <a href={link} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-rosewood transition-colors hover:text-champagne">
+                    <MapPin size={15} /> View Location
+                  </a>
+                )}
+              </motion.article>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

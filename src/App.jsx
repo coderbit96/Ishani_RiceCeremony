@@ -5,7 +5,6 @@ import Hero from './components/Hero'
 import Countdown from './components/Countdown'
 import AboutBaby from './components/AboutBaby'
 import Invitation from './components/Invitation'
-import EventDetails from './components/EventDetails'
 import Celebration from './components/Celebration'
 import Gallery from './components/Gallery'
 import LocationSection from './components/LocationSection'
@@ -14,6 +13,7 @@ import Footer from './components/Footer'
 import FloatingActions from './components/FloatingActions'
 import MusicControl from './components/MusicControl'
 import AmbientPetals from './components/AmbientPetals'
+import IntroLoader from './components/IntroLoader'
 import eventData from './data/eventData'
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
 
   return (
     <>
+      <IntroLoader />
       <motion.div className="fixed left-0 right-0 top-0 z-[70] h-[2px] origin-left bg-champagne" style={{ scaleX }} />
       <AmbientPetals />
       <Header />
@@ -45,7 +46,6 @@ function App() {
         <Countdown />
         <AboutBaby />
         <Invitation />
-        <EventDetails />
         <Celebration />
         <Gallery />
         <LocationSection />

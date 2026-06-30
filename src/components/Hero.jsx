@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { ArrowDown, CalendarDays, Clock3, MapPin } from 'lucide-react'
 import eventData from '../data/eventData'
 import { formatTemplate, getGuestName } from '../utils/invitationLinks'
@@ -11,13 +12,22 @@ const dateParts = new Intl.DateTimeFormat('en-IN', {
 const getDatePart = (type) => dateParts.find((part) => part.type === type)?.value
 
 function Hero() {
+  const sectionRef = useRef(null)
+  const reduceMotion = useReducedMotion()
+  const rotateX = useMotionValue(0)
+  const rotateY = useMotionValue(0)
+  const smoothRotateX = useSpring(rotateX, { stiffness: 140, damping: 18 })
+  const smoothRotateY = useSpring(rotateY, { stiffness: 140, damping: 18 })
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 48])
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 88])
   const guestName = getGuestName()
   const greeting = guestName === 'Guest'
     ? eventData.copy.dearGuest
     : formatTemplate(eventData.copy.personalizedGreeting, { guest: guestName })
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-cream pt-20">
+    <section ref={sectionRef} id="home" className="relative min-h-screen overflow-hidden bg-cream pt-20">
       <div className="pointer-events-none absolute -left-28 top-32 h-80 w-80 rounded-full bg-blush/45 blur-3xl" />
       <div className="pointer-events-none absolute -right-16 bottom-20 h-72 w-72 rounded-full bg-champagne/15 blur-3xl" />
       <div className="alpana absolute inset-0 opacity-[0.055]" />
@@ -26,7 +36,7 @@ function Hero() {
       <motion.span aria-hidden="true" animate={{ rotate: [0, 12, 0], scale: [1, 1.08, 1] }} transition={{ duration: 5, repeat: Infinity }} className="absolute right-[5%] top-[38%] font-display text-3xl text-petal/50">❀</motion.span>
 
       <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-10 px-5 py-12 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-16">
-        <motion.div initial={{ opacity: 0, x: -32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9 }} className="order-2 text-center lg:order-1 lg:text-left">
+        <motion.div style={{ y: copyY }} initial={{ opacity: 0, x: -32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9 }} className="order-2 text-center lg:order-1 lg:text-left">
           <p className="mx-auto mb-4 max-w-lg text-[0.62rem] font-bold uppercase leading-5 tracking-[0.2em] text-champagne sm:text-[0.66rem] sm:tracking-[0.28em] lg:mx-0">{greeting}</p>
           <p className="mb-3 font-display text-xl italic text-ink/65 sm:text-2xl">{eventData.copy.heroCeremonyLine}</p>
           <h1 className="font-display text-[4.6rem] font-medium leading-[0.8] tracking-[-0.055em] text-rosewood sm:text-[6.4rem] lg:text-[7.8rem]">
@@ -42,13 +52,13 @@ function Hero() {
               <CalendarDays className="text-champagne" size={19} strokeWidth={1.5} />
               <div className="text-left">
                 <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-ink/45">{getDatePart('weekday')}</p>
-                <p className="font-display text-lg font-semibold text-rosewood">{getDatePart('day')} {getDatePart('month')} {getDatePart('year')}</p>
+                <p className="number-style text-lg font-semibold text-rosewood">{getDatePart('day')} {getDatePart('month')} {getDatePart('year')}</p>
               </div>
             </div>
             <span className="hidden h-9 w-px bg-champagne/25 sm:block" />
             <div className="flex items-center gap-3">
               <Clock3 className="text-champagne" size={19} strokeWidth={1.5} />
-              <p className="text-sm font-semibold text-rosewood">{eventData.eventTime}</p>
+              <p className="number-style text-sm font-semibold text-rosewood">{eventData.eventTime}</p>
             </div>
           </div>
 
@@ -58,7 +68,23 @@ function Hero() {
           </p>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.94, rotate: 1.5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }} className="relative order-1 mx-auto w-full max-w-[31rem] lg:order-2 lg:max-w-[36rem]">
+        <motion.div
+          style={{ y: portraitY, rotateX: smoothRotateX, rotateY: smoothRotateY, transformPerspective: 1000 }}
+          initial={{ opacity: 0, scale: 0.94, rotate: 1.5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          onPointerMove={(event) => {
+            if (reduceMotion || event.pointerType === 'touch') return
+            const bounds = event.currentTarget.getBoundingClientRect()
+            rotateY.set(((event.clientX - bounds.left) / bounds.width - 0.5) * 7)
+            rotateX.set(-((event.clientY - bounds.top) / bounds.height - 0.5) * 7)
+          }}
+          onPointerLeave={() => {
+            rotateX.set(0)
+            rotateY.set(0)
+          }}
+          className="relative order-1 mx-auto w-full max-w-[31rem] lg:order-2 lg:max-w-[36rem]"
+        >
           <div className="absolute -inset-4 rounded-[45%_45%_2rem_2rem] border border-champagne/30" />
           <div className="absolute -left-8 top-20 hidden h-28 w-28 rounded-full border border-champagne/25 lg:block" />
           <div className="hero-frame relative aspect-[4/5] overflow-hidden bg-blush shadow-soft">
