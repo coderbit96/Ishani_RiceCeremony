@@ -11,7 +11,13 @@ function AboutBaby() {
         <motion.div initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.3 }} className="relative mx-auto w-full max-w-lg">
           <div className="absolute -inset-4 rotate-2 rounded-[2.5rem] border border-champagne/25" />
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2.2rem] bg-blush shadow-soft">
-            <img src={eventData.heroImage} alt={eventData.copy.heroImageAlt} className="h-full w-full object-cover object-[50%_40%]" loading="lazy" />
+            <img
+              src={eventData.aboutBaby.image}
+              alt={eventData.aboutBaby.imageAlt}
+              style={{ objectPosition: eventData.aboutBaby.imagePosition }}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-rosewood/45 to-transparent" />
           </div>
           <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 3.8, repeat: Infinity }} className="absolute -bottom-5 -right-3 grid h-20 w-20 place-items-center rounded-full bg-rosewood text-petal shadow-gold">

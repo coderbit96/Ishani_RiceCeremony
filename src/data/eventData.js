@@ -1,4 +1,9 @@
-import heroPortrait from '../assets/ishani-hero.jpg'
+import frontPortrait from '../assets/ishani-front.jpeg'
+import aboutPortrait from '../assets/ishani-about.jpeg'
+import motherEmbrace from '../assets/gallery-mother-embrace.jpeg'
+import fatherClose from '../assets/gallery-father-close.jpeg'
+import motherGaze from '../assets/gallery-mother-gaze.jpeg'
+import fatherSunset from '../assets/gallery-father-sunset.jpeg'
 
 // This is the only file you need to edit to personalize the invitation.
 const eventData = {
@@ -25,18 +30,21 @@ const eventData = {
   aboutBaby: {
     kicker: 'Our tiniest blessing',
     title: 'A little story of love named Ishani',
+    image: aboutPortrait,
+    imageAlt: 'A close portrait of Ishani smiling softly',
+    imagePosition: '64% 45%',
     message:
       'With love, joy and blessings, we are celebrating the শুভ অন্নপ্রাশন of our little princess. Your presence will make this day more special.',
     parentsLabel: 'Proud parents',
   },
   blessingsMessage:
     'May every grain bring her wisdom, every flavour bring her joy, and every shared meal keep her surrounded by love.',
-  heroImage: heroPortrait,
+  heroImage: frontPortrait,
   galleryImages: [
-    { src: heroPortrait, alt: 'Ishani smiling on her special day', caption: 'Our little sunshine', position: '50% 37%' },
-    { src: heroPortrait, alt: 'Ishani in her pink traditional dress', caption: 'Draped in love', position: '50% 58%' },
-    { src: heroPortrait, alt: 'Ceremonial rice and flowers', caption: 'A beautiful beginning', position: '50% 88%' },
-    { src: heroPortrait, alt: 'Ishani surrounded by flowers', caption: 'Tiny moments, forever memories', position: '50% 20%' },
+    { src: motherEmbrace, alt: 'Ishani resting in her mother’s loving embrace', caption: 'A mother’s warm embrace', position: '50% 50%' },
+    { src: fatherClose, alt: 'Ishani looking up at her father', caption: 'Safe in Papa’s hands', position: '50% 50%' },
+    { src: motherGaze, alt: 'Ishani sharing a tender moment with her mother', caption: 'A bond beyond words', position: '50% 50%' },
+    { src: fatherSunset, alt: 'Ishani playing with her father at sunset', caption: 'Golden moments with Papa', position: '50% 50%' },
   ],
   timeline: [
     { time: '11:30 AM', title: 'Shubho Agomon', description: 'A warm welcome with flowers and smiles.', icon: 'sparkles' },
@@ -67,7 +75,7 @@ const eventData = {
     heroCeremonyLine: 'To the শুভ অন্নপ্রাশন of',
     dearGuest: 'Dear Guest, You Are Invited',
     personalizedGreeting: 'Dear {guest}, You Are Invited',
-    heroImageAlt: 'Ishani dressed for her শুভ অন্নপ্রাশন ceremony',
+    heroImageAlt: 'Ishani smiling for her শুভ অন্নপ্রাশন celebration',
     princessBadge: 'Our Princess',
     daughterOf: 'Beloved daughter of',
     saveDate: 'Save the date',

@@ -17,11 +17,11 @@ function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 transition-all duration-500 ${scrolled ? 'bg-rosewood shadow-gold' : 'bg-rosewood shadow-sm'}`}>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-        <a href="#home" className="group flex items-center gap-3" aria-label={`${eventData.babyName}'s invitation home`}>
+        <a href="#home" className="group flex items-center gap-3" aria-label={`${eventData.babyNameBengali}-র আমন্ত্রণের হোম`}>
           <span className="grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-white/10 font-display text-xl italic text-petal shadow-sm">
-            {eventData.babyName.charAt(0)}
+            {eventData.babyNameBengali.charAt(0)}
           </span>
-          <span className="font-display text-xl font-semibold tracking-wide text-white">{eventData.babyName}</span>
+          <span className="font-display text-xl font-semibold tracking-wide text-white">{eventData.babyNameBengali}</span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
