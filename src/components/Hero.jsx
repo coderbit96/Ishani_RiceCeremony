@@ -3,6 +3,7 @@ import { ArrowDown, CalendarDays, Clock3, MapPin } from 'lucide-react'
 import eventData from '../data/eventData'
 import { formatTemplate, getGuestName } from '../utils/invitationLinks'
 import FloralMark from './FloralMark'
+import HeroBalloons from './HeroBalloons'
 
 const dateParts = new Intl.DateTimeFormat('en-IN', {
   day: '2-digit', month: 'long', year: 'numeric', weekday: 'long',
@@ -20,6 +21,7 @@ function Hero() {
       <div className="pointer-events-none absolute -left-28 top-32 h-80 w-80 rounded-full bg-blush/45 blur-3xl" />
       <div className="pointer-events-none absolute -right-16 bottom-20 h-72 w-72 rounded-full bg-champagne/15 blur-3xl" />
       <div className="alpana absolute inset-0 opacity-[0.055]" />
+      <HeroBalloons />
       <motion.span aria-hidden="true" animate={{ y: [0, -9, 0], opacity: [0.25, 0.65, 0.25] }} transition={{ duration: 4, repeat: Infinity }} className="absolute left-[7%] top-[20%] font-display text-2xl text-champagne">✦</motion.span>
       <motion.span aria-hidden="true" animate={{ rotate: [0, 12, 0], scale: [1, 1.08, 1] }} transition={{ duration: 5, repeat: Infinity }} className="absolute right-[5%] top-[38%] font-display text-3xl text-petal/50">❀</motion.span>
 

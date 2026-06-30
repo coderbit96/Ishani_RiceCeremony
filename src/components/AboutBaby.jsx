@@ -2,11 +2,13 @@ import { motion } from 'framer-motion'
 import { Heart, Sparkles } from 'lucide-react'
 import eventData from '../data/eventData'
 import SectionHeading from './SectionHeading'
+import HeroBalloons from './HeroBalloons'
 
 function AboutBaby() {
   return (
     <section id="about" className="relative overflow-hidden bg-white py-24 sm:py-32">
       <div className="pointer-events-none absolute -left-20 top-24 h-64 w-64 rounded-full bg-blush/35 blur-3xl" />
+      <HeroBalloons />
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
         <motion.div initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.3 }} className="relative mx-auto w-full max-w-lg">
           <div className="absolute -inset-4 rotate-2 rounded-[2.5rem] border border-champagne/25" />

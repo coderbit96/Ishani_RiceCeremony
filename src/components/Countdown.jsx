@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import eventData from '../data/eventData'
 import SectionHeading from './SectionHeading'
+import CountdownToys from './CountdownToys'
 
 const getRemaining = () => {
   const rawDifference = new Date(eventData.eventDate).getTime() - Date.now()
@@ -28,6 +29,7 @@ function Countdown() {
   return (
     <section className="relative overflow-hidden bg-rosewood py-24 sm:py-28">
       <div className="alpana-dark absolute inset-0 opacity-[0.07]" />
+      <CountdownToys />
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading kicker={eventData.copy.countdownKicker} title={eventData.copy.countdownTitle} light />
         {remaining.isOver ? (
